@@ -1,0 +1,20 @@
+//MAX AREA COVERED BY TWO STICK(ARRAY ELEMENTS)
+public int maxArea(int[] height) {
+      //we use two pointers one at start and another at end
+
+      int start = 0;                //put on left most or first element
+      int end = height.length - 1;  // at last element
+      int area = 0;                 // area covered is taken as 0 intially
+      while(start < end){
+
+          int min_of_two_heights = Math.min(height[start],height[end]);
+          area = Math.max(area , min_of_two_heights*(end - start)); //area = (endindex - start index ) * minimum height
+
+          if(height[start]<height[end]){  //whichever is smaller height that ppointer is shifted i.e start to right and end to left
+              start++;
+          }else{
+              end--;
+          }
+      }
+      return area;        
+}
