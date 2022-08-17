@@ -1,0 +1,25 @@
+//MERGE-SORT TWO SORTED LINKED LISTS
+public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+      if(list1 == null) return list2 ;    //if l1 is null directly return l2
+      if(list2 == null) return list1 ;    //if l2 is null directly return l1
+
+      if(list1.val > list2.val){          //swap list ,l1 should have least element at first
+          ListNode temp = list1;          
+          list1 = list2;
+          list2 = temp;
+      }
+      ListNode res = list1;               //res node is made head of l1
+      while(list1!=null && list2!=null){
+          ListNode tmp = null;            //temp node is pointed at l1 node
+          while(list1!=null && (list1.val <= list2.val)){ 
+              tmp = list1;
+              list1 = list1.next;     //l1 and temp are shifted right until l1 <= l2
+          }
+          tmp.next = list2;           
+
+          ListNode t = list1;         //swapping l1 and l2
+          list1 = list2;
+          list2 = t;
+      }
+      return res;
+  }
