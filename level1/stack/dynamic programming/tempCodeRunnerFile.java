@@ -1,0 +1,2 @@
+
+        solution(n, prices, charge);
