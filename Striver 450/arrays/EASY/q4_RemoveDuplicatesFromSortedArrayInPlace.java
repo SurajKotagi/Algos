@@ -15,7 +15,7 @@ public class q4_RemoveDuplicatesFromSortedArrayInPlace {
         }
     }
 
-    // Brute
+    // Brute TC -> O(NlogN) + O(n) SC -> O(n)
     public static int B_removeDuplicates(int[] arr, int n) {
         Set<Integer> set = new HashSet<>();
         for (int x : arr) {
@@ -28,7 +28,7 @@ public class q4_RemoveDuplicatesFromSortedArrayInPlace {
         return i;
     }
 
-    // optimal
+    // optimal TC -> O(n) SC -> O(1)
     public static int O_removeDuplicates(int[] arr, int n) {
         int i = 0;
         for (int j = 1; j < n; j++) {

@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class a1_selection_sort {
+public class a3_selection_sort {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
@@ -17,18 +17,14 @@ public class a1_selection_sort {
     }
 
     public static void selection_sort(int[] arr, int n) {
-        // find the minimum index within i to n and swap the value at it with index i
-        for (int i = 0; i < n - 1; i++) {
-            int mini = i;
-            for (int j = i; j < n; j++) {
-                if (arr[j] < arr[mini]) {
-                    mini = j;
-                }
+        for (int i = 0; i < n; i++) {
+            int j = i;
+            while (j > 0 && arr[j] < arr[j - 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j - 1];
+                arr[j - 1] = temp;
+                j--;
             }
-            // swap
-            int temp = arr[mini];
-            arr[mini] = arr[i];
-            arr[i] = temp;
         }
     }
 }
